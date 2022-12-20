@@ -1,0 +1,21 @@
+# ------------------------------------------------------------------------------------------------ #
+#                                This file is part of CosmoScout VR                                #
+# ------------------------------------------------------------------------------------------------ #
+
+# SPDX-FileCopyrightText: German Aerospace Center (DLR) <cosmoscout@dlr.de>
+# SPDX-License-Identifier: CC0-1.0
+
+# Set the default eol behavior.
+* text=auto
+
+# Explicitly declare text files we want to always be normalized and converted
+# to native line endings on checkout.
+*.cpp text
+*.hpp text
+*.sh  text eol=lf
+*.bat text eol=crlf
+
+# Ignore some javascript files while computing the repository's most used languages on Github.
+resources/gui/third-party/* linguist-vendored
+resources/gui/js/moon.js linguist-vendored
+resources/gui/js/mars.js linguist-vendored

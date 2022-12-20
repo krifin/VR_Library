@@ -1,0 +1,87 @@
+<!-- 
+SPDX-FileCopyrightText: German Aerospace Center (DLR) <cosmoscout@dlr.de>
+SPDX-License-Identifier: MIT
+-->
+
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    <nodespace>
+    </nodespace>
+    <graph>
+
+        <!-- mouse input -->
+        <node name="mouse" type="DriverSensor">
+            <param name="sensor_index" value="0"/>
+            <param name="driver" value="MOUSE"/>
+        </node>
+
+        <!-- project the necessary information from the mouse history -->
+        <node name="project_mouse" type="HistoryProject">
+            <param name="project">WHEEL_STATE, X_POS, Y_POS</param>
+        </node>
+
+        <!-- time input -->
+        <node name="timer" type="Timer" />
+        <node name="force_evaluation_wheel" type="Sampler"/>
+
+        <!-- forward movement -->
+        <node name="3dmouse" type="3DMouseTransform">
+            <param name="displaysystem" value="MAIN"/>
+            <param name="viewport" value="MAIN_VIEWPORT"/>
+            <param name="in_world_coordinates" value="FALSE"/>
+            <param name="origin_offset_along_ray" value="0"/>
+        </node>
+
+        <node name="wheel_value"       type="Difference[int]"/>
+        <node name="forward_direction" type="ConstantValue[VistaVector3D]">
+            <param name="value" value="0,0,-1,0"/>
+        </node>
+        <node name="forward_translation" type="Multiply[int,VistaVector3D]"/>
+        <node name="zoom_translation" type="Transform[VistaQuaternion,VistaVector3D]"/>
+
+        <node name="get_selection_state" type="GetSelectionStateNode" />
+        <node name="get_selection_state_invert" type="Invert[bool]"/>
+        <node name="convert_get_selection_state_to_int" type="TypeConvert[bool,int]" />
+
+        <node name="zoom_value" type="Multiply[int]"/>
+
+        <!-- observer output -->
+        <node name="observer" type="ObserverNavigationNode">
+            <param name="max_linear_speed" value="30, 30, 30" />
+            <param name="linear_deceleration" value="0.3" />
+        </node>
+
+        <!-- Debugging -->
+        <!-- <node name="debug_text" type="SimpleText"/> -->
+
+    </graph>
+    <edges>
+
+        <!-- hardware stuff -->
+        <edge fromnode="mouse" tonode="project_mouse" fromport="history" toport="history"/>
+
+        <!-- forward movement -->
+        <edge fromnode="project_mouse" tonode="3dmouse" fromport="X_POS" toport="x_pos"/>
+        <edge fromnode="project_mouse" tonode="3dmouse" fromport="Y_POS" toport="y_pos"/>
+
+        <edge fromnode="project_mouse" tonode="force_evaluation_wheel" fromport="WHEEL_STATE" toport="WHEEL_STATE"/>
+        <edge fromnode="timer" tonode="force_evaluation_wheel" fromport="time" toport="time"/>
+        <edge fromnode="force_evaluation_wheel" tonode="wheel_value" fromport="WHEEL_STATE" toport="in"/>
+        
+        <edge fromnode="get_selection_state" tonode="get_selection_state_invert" fromport="hovered_gui_item_allows_scrolling" toport="in"/>
+        <edge fromnode="get_selection_state_invert" tonode="convert_get_selection_state_to_int" fromport="out" toport="in"/>
+        <edge fromnode="convert_get_selection_state_to_int" tonode="zoom_value" fromport="out" toport="first"/>
+
+        <edge fromnode="wheel_value" tonode="zoom_value" fromport="out" toport="second"/>
+
+        <edge fromnode="zoom_value" tonode="forward_translation" fromport="out" toport="first"/>
+        <edge fromnode="forward_direction"  tonode="zoom_translation" fromport="value" toport="second"/>
+
+        <edge fromnode="3dmouse"  tonode="zoom_translation" fromport="orientation" toport="first"/>
+        <edge fromnode="zoom_translation"  tonode="forward_translation" fromport="out" toport="second"/>
+        <edge fromnode="forward_translation"  tonode="observer" fromport="out" toport="translation"/>
+
+        <!-- time -->
+        <edge fromnode="timer" tonode="observer" fromport="time"  toport="time"/>
+    </edges>
+</module>

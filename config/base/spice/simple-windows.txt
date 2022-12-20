@@ -1,0 +1,16 @@
+# ------------------------------------------------------------------------------------------------ #
+#                                This file is part of CosmoScout VR                                #
+# ------------------------------------------------------------------------------------------------ #
+
+# SPDX-FileCopyrightText: German Aerospace Center (DLR) <cosmoscout@dlr.de>
+# SPDX-License-Identifier: CC0-1.0
+
+\begindata
+
+KERNELS_TO_LOAD = (
+  '..\share\download\spice\naif0012.tls',
+  '..\share\download\spice\pck00010.tpc',
+  '..\share\download\spice\cg_1950_2050_v03.bsp'
+)
+
+\begintext

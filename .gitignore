@@ -1,0 +1,46 @@
+# ------------------------------------------------------------------------------------------------ #
+#                                This file is part of CosmoScout VR                                #
+# ------------------------------------------------------------------------------------------------ #
+
+# SPDX-FileCopyrightText: German Aerospace Center (DLR) <cosmoscout@dlr.de>
+# SPDX-License-Identifier: CC0-1.0
+
+/build
+/install
+/data
+
+# ignore all additional configuration directories in /config
+/config/*
+!/config/CMakeLists.txt
+!/config/base
+
+# ignore all additional plugin directories in /plugins
+/plugins/*
+!/plugins/CMakeLists.txt
+!/plugins/csl-tools
+!/plugins/csl-node-editor
+!/plugins/csp-anchor-labels
+!/plugins/csp-atmospheres
+!/plugins/csp-custom-web-ui
+!/plugins/csp-demo-node-editor
+!/plugins/csp-vr-accessibility
+!/plugins/csp-fly-to-locations
+!/plugins/csp-lod-bodies
+!/plugins/csp-measurement-tools
+!/plugins/csp-minimap
+!/plugins/csp-recorder
+!/plugins/csp-rings
+!/plugins/csp-satellites
+!/plugins/csp-sharad
+!/plugins/csp-simple-bodies
+!/plugins/csp-stars
+!/plugins/csp-timings
+!/plugins/csp-trajectories
+!/plugins/csp-web-api
+!/plugins/csp-wms-overlays
+
+*.sublime*
+.vscode
+.idea
+
+*.nfs*
