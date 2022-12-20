@@ -19,5 +19,5 @@ This higher abstraction level enables that the business logic has to be implemen
 License
 ApertusVR is released under the MIT License, which is a permissive open source license. The only condition is that you distribute the license text included in our distribution with any software that uses ApertusVR.
 
-**Our aim is to build an interactive VR library for space science followed by a library with Natural Science"
+**Our aim is to build an interactive VR library for space science followed by a library with Natural Science**
 
