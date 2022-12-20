@@ -6,6 +6,9 @@ Life Sciences
 History
 Physical Science
 
+![img-info-slide-3-3-l@2x 4a5cdd44](https://user-images.githubusercontent.com/121123118/208760876-0c095586-e8a5-4499-a2ba-b913a0869752.jpg)
+
+
 Integrating humanistic inquiry & knowledge  with cutting-edge technology and design. Through our open source library, we explore the various innovative, interdisciplinary ways of showcasing art and culture through immersive installations, exhibitions, films, digital publications, and other multimedia forms.In some instances, digital technology and sensorial techniques breathe new life into an archival record. In others, it’s the archival record that lends form, substance, and nuance to projects that begin as aesthetic concepts.
 
 
