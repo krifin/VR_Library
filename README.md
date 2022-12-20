@@ -1,4 +1,4 @@
-#Metaverse Library 
+**Metaverse Library**
 
 Our Aim is to combine humanistic inquiry with cutting-edge technology and design that creates and curates multimedia storytelling.
 Sector focus for Library categories:
