@@ -1,24 +1,6 @@
-<!-- 
-SPDX-FileCopyrightText: German Aerospace Center (DLR) <cosmoscout@dlr.de>
-SPDX-License-Identifier: CC-BY-4.0
- -->
- 
-<p align="center"> 
-  <img src ="resources/logo/large.svg" />
-</p>
 
-CosmoScout VR is a modular virtual universe developed at the German Aerospace Center (DLR).
+CosmoScout VR is a modular virtual universe 
 It lets you explore, analyze and present huge planetary data sets and large simulation data in real-time.
-
-[![Build Status](https://github.com/cosmoscout/cosmoscout-vr/workflows/Build/badge.svg?branch=main)](https://github.com/cosmoscout/cosmoscout-vr/actions)
-[![REUSE](https://api.reuse.software/badge/github.com/cosmoscout/cosmoscout-vr)](https://api.reuse.software/info/github.com/cosmoscout/cosmoscout-vr)
-[![Coverage Status](https://coveralls.io/repos/github/cosmoscout/cosmoscout-vr/badge.svg?branch=main)](https://coveralls.io/github/cosmoscout/cosmoscout-vr?branch=main)
-[![documentation](https://img.shields.io/badge/Docs-online-34D058.svg)](docs/README.md)
-[![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE.md)
-[![source loc](https://img.shields.io/badge/LoC-15.3k-green.svg)](tools/cloc.sh)
-[![plugin loc](https://img.shields.io/badge/LoC_Plugins-22.7k-green.svg)](tools/cloc.sh)
-[![comments](https://img.shields.io/badge/Comments-7.4k-yellow.svg)](tools/cloc.sh)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3381953.svg)](https://doi.org/10.5281/zenodo.3381953)
 
 The software can be build on Linux (gcc or clang) and Windows (msvc).
 Nearly all dependencies are included as [git submodules](externals), please refer to the [**documentation**](docs) in order to get started.
@@ -76,9 +58,7 @@ You can also read the [**changelog**](docs/changelog.md) to learn what's new in 
 
 :warning: _**Warning:** CosmoScout VR is research software which is still under heavy development and changes on a daily basis.
 Many features are badly documented, it will crash without warning and may do other unexpected things.
-We are working hard on improving the user experience - please [report all issues and suggestions](https://github.com/cosmoscout/cosmoscout-vr/issues) you have!_
 
-For each release, [binary packages](https://github.com/cosmoscout/cosmoscout-vr/releases) are automatically created via [Github Actions](https://github.com/cosmoscout/cosmoscout-vr/actions).
 
 When started for the very first time, some example datasets will be downloaded from the internet.
 **This will take some time!**
